@@ -2,7 +2,7 @@
 
 namespace sudoku_solvers\hw3\views;
 
-abstract calss View
+abstract class View
 {
 
   public function __construct(){
