@@ -23,5 +23,16 @@ class NoteModel extends Model
         return $note;
     }
 
+    public function addNote($name, $content, $currentList) {
+        $lists = array();
+        $query ="INSERT INTO List(name,content,date_created,list_id) VALUES($name, $content, CURDATE(), $currentList);";
+        $result = mysqli_query($this->connection, $query);
+        if (mysqli_query($this->connection, $query)) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
 }
 ?>
