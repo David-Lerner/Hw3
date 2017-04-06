@@ -14,10 +14,9 @@
         <head>
           <title><?= $data[1] ?></title>
           <base href="<?= Config::BASE_URL ?>"/>
-          <link rel="stylesheet" type="text/css" href="src/styles/common.css">
+          <link rel="stylesheet" type="text/css" href="/Hw3/src/styles/common.css">
         </head>
-
-      </<?php
+      <?php
     }
 
   }

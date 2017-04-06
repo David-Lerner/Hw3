@@ -1,0 +1,35 @@
+
+h2 {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.listsDiv {
+  float:left;
+  position:relative;
+  height:1.5in;
+  top:-.17in;
+  width:1.5in;
+}
+
+.listsList{
+    font-size: 14px;
+}
+
+.notesDiv {
+    height: 1in;
+}
+
+.notesList {
+    float :right;
+    font-size: 14px;
+}
+
+.page {
+  align-items: center;
+  border:1px solid black;
+  width:3in;
+  height:3in;
+  margin:.05in;
+  padding:0.25in;">
+}
