@@ -12,10 +12,13 @@ class LandingController extends Controller
 	{
 		$title = [1=>"Note-A-List"];
 		$lists = [1=>"List1", 2=>"List2",3=>"List3"];
-		$notes = [1=>"Note1", 2=>"Note2",3=>"Note3"];
-		$dates = [1=>"Date1", 2=>"Date2",3=>"Date3"];
+		$notes = [1=>["name"=>"Name1", "date_created"=>"1/1/1111"],
+		 2=>["name"=>"Name2", "date_created"=>"2/1/1111"],
+		 3=>["name"=>"Name3", "date_created"=>"3/1/1111"]];
+		$data = [$title, $lists, $notes];
+		
 		$views=new L\LandingView();
-		$views->render($title, $lists, $notes, $dates);
+		$views->render($data);
 	}
 }
 ?>
