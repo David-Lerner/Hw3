@@ -5,9 +5,9 @@
  *  to get your program running on the grader's machine.
  */
 
-  namespace sudoku_solvers\hw3\config;
+  namespace sudoku_solvers\hw3\configs;
 
-  class config
+  class Config
   {
     const BASE_URL="http://localhost/Hw3";
     const DB_HOST="localhost";

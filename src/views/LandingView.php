@@ -18,9 +18,10 @@ class LandingView extends View{
     $this->header_display->render($data); ?>
     <body>
       <h1>
-        <a href="index.php?c=LandingController&m=mainAction$arg1=1"><?=$data[1] ?></a>
+        <a href="Hw3/index.php?c=LandingController&m=mainAction&arg1=1"><?=$data[1] ?></a>
       </h1>
-    </body><?php
+    </body>
+    <html><?php
   }
 
 }

@@ -3,7 +3,7 @@
   namespace sudoku_solvers\hw3\views\layouts;
 
   use sudoku_solvers\hw3\views\View;
-  use sudoku_solvers\h3\congfigs\config;
+  use sudoku_solvers\hw3\configs\Config;
 
   class HeaderLayout extends Layout{
 
@@ -11,8 +11,8 @@
       ?>
         <!DOCTYPE html>
         <html>
-        <head>a
-          <title><?= $data['list_name'] ?></title>
+        <head>
+          <title><?= $data[1] ?></title>
           <base href="<?= Config::BASE_URL ?>"/>
           <link rel="stylesheet" type="text/css" href="src/styles/common.css">
         </head>

@@ -3,7 +3,7 @@
  *    make a good initial database
  */
 
-namespace sudoku_solvers\hw3\config;
+namespace sudoku_solvers\hw3\configs;
 
 require_once('Config.php');
 

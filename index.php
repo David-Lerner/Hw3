@@ -8,10 +8,10 @@ spl_autoload_register(function ($class) {
     $prefix = 'sudoku_solvers\\hw3';
     $len = strlen($prefix);
     $relative_class = substr($class, $len);
-    
+
     // Uncomment below if you get class not found, it will show all the autoloaded classes
-    //echo "$relative_class <br />"; 
-   
+    //echo "$relative_class <br />";
+
     $unixify_class_name = "/".str_replace('\\', '/', $relative_class) .
         '.php';
     $file = 'src' . $unixify_class_name;
@@ -21,7 +21,7 @@ spl_autoload_register(function ($class) {
 });
 if(!isset($_REQUEST['c']) && !isset($_REQUEST['m']))
 {
-	
+
 	$controller=new C\LandingController();
 	$controller->mainAction([1]);
 }
@@ -34,7 +34,7 @@ else
 	parse_str($querystring,$request_array);
 	$argumentlist=[];
 	$availablecontrollers=['LandingController','SublistController','NewListController','NewNoteController','DisplayNoteController'];
-	
+
 	if(count($request_array)>2)
 	{
 		$numberofparams=count($request_array);
@@ -51,7 +51,7 @@ else
 	{
 		//It is a valid controller
 		require_once("./src/controllers/$controllertocall.php");
-		$controllerclass='sudoku_solvers\hw3\controllers' . $controllertocall;
+		$controllerclass='sudoku_solvers\\hw3\\controllers\\' . $controllertocall;
 		$controller=new $controllerclass();
 		if(method_exists($controller,$methodtoinvoke))
 		{
@@ -74,7 +74,6 @@ else
 	{
 		print("Error: Page not found! Invalid Controller called");
 	}
-	
+
 }
 ?>
-
