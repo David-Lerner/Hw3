@@ -15,5 +15,16 @@ class ListModel extends Model
         return $lists;
     }
 
+    public function addList($name, $currentList) {
+        $lists = array();
+        $query ="INSERT INTO List(name,parent_id) VALUES($name, $currentList);";
+        $result = mysqli_query($this->connection, $query);
+        if (mysqli_query($this->connection, $query)) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
 }
 ?>

@@ -31,7 +31,7 @@ $stmt = mysqli_prepare($conn, 'CREATE TABLE Note
   (note_id INT AUTO_INCREMENT, name VARCHAR(30), content VARCHAR(1000), date_created DATE, list_id INT, FOREIGN KEY (list_id) REFERENCES List(list_id) ON DELETE CASCADE, PRIMARY KEY (note_id));');
 mysqli_stmt_execute($stmt);
 
-$stmt = mysqli_prepare($conn, 'INSERT INTO List(name,parent_id) VALUES("Note-A-List", 1)');
+$stmt = mysqli_prepare($conn, 'INSERT INTO List(name,parent_id) VALUES("Note-A-List", 1);');
 mysqli_stmt_execute($stmt);
 
 $stmt->close();
