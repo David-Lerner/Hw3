@@ -11,7 +11,7 @@
 
     public function __construct(View $current_view){
 
-      $this->$view = $current_view;
+      $this->view = $current_view;
     }
 
     public abstract function render($data);
