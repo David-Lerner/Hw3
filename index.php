@@ -23,7 +23,7 @@ if(!isset($_REQUEST['c']) && !isset($_REQUEST['m']))
 {
 
 	$controller=new C\LandingController();
-	$controller->mainAction([1]);
+	$controller->mainAction(["arg1" => 1]);
 }
 
 else

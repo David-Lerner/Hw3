@@ -20,21 +20,22 @@ class LandingView extends View{
     $note_array = $data[2];
     $current_list = $data[3];
     ?>
+
     <body>
       <div class="page">
       <h1>
-        <a href="Hw3/index.php?c=LandingController&m=mainAction&arg1=1"><?=$title_array[1]?></a>
+        <a href="Hw3/index.php"><?=$title_array[1]?></a>
       </h1>
       <div>
         <div class ="listsDiv">
           <h2>Lists</h2>
             <ul>
               <li>
-                [<a href="Hw3/index.php?c=NewListController&m=mainAction&arg1=".<?=$current_list?>>New List</a>]
+                [<a href="Hw3/index.php?c=NewListController&m=mainAction&arg1=<?=$current_list?>">New List</a>]
               </li>
               <?php
                 foreach($list_array as $list_id => $list_name){
-                  ?><li class="lists_items"><a href="Hw3/index.php?c=SublistController&m=mainAction&arg1=".<?=$list_id?>><?=$list_name?></a></li> <?php
+                  ?><li class="lists_items"><a href="Hw3/index.php?c=SublistController&m=mainAction&arg1=<?=$list_id?>"><?=$list_name?></a></li> <?php
                 }
               ?>
             </ul>
@@ -44,11 +45,11 @@ class LandingView extends View{
           <h2>Notes</h2>
             <ul>
               <li>
-                [<a href="Hw3/index.php?c=NewNoteController&m=mainAction&arg1=".<?=$current_list?>>New Note</a>]
+                [<a href="Hw3/index.php?c=NewNoteController&m=mainAction&arg1=<?=$current_list?>">New Note</a>]
               </li>
               <?php
                 foreach($note_array as $note_id => $note){
-                  ?> <li class="lists_items"><a href="Hw3/index.php?c=SublistController&m=mainAction&arg1=".<?=$note_id?>><?=$note['name']?></a> <?=$note['date_created']?></li>
+                  ?> <li class="lists_items"><a href="Hw3/index.php?c=SublistController&m=mainAction&arg1=<?=$note_id?>"><?=$note['name']?></a> <?=$note['date_created']?></li>
                   <?php
                 }
                ?>
