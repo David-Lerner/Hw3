@@ -43,7 +43,7 @@ else
 			$arname="arg".$i;
 			if(array_key_exists($arname,$request_array))
 			{
-				$argumentlist[]=$request_array[$arname];
+				$argumentlist[$arname]=$request_array[$arname];
 			}
 		}
 	}
@@ -67,12 +67,12 @@ else
 		}
 		else
 		{
-			print("Error: Invalid method called. Page cannot be displayed");
+			//print("Error: Invalid method called. Page cannot be displayed");
 		}
 	}
 	else
 	{
-		print("Error: Page not found! Invalid Controller called");
+		//print("Error: Page not found! Invalid Controller called");
 	}
 
 }

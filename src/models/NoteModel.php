@@ -22,14 +22,14 @@ class NoteModel extends Model
     }
 
     public function addNote($name, $content, $currentList) {
-        $lists = array();
         $query ="INSERT INTO List(name,content,date_created,list_id) VALUES($name, $content, CURDATE(), $currentList);";
-        $result = mysqli_query($this->connection, $query);
         if (mysqli_query($this->connection, $query)) {
+             //echo "New record created successfully";
             return true;
         } else {
+            //echo "Error: " . $query . "<br>" . mysqli_error($this->connection);
             return false;
-        }
+        } 
     }
 
 }
