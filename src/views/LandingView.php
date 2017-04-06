@@ -18,6 +18,7 @@ class LandingView extends View{
     $title_array = $data[0];
     $list_array = $data[1];
     $note_array = $data[2];
+    $current_list = $data[3];
     ?>
     <body>
       <div class="page">
@@ -29,7 +30,7 @@ class LandingView extends View{
           <h2>Lists</h2>
             <ul>
               <li>
-                [<a href="Hw3/index.php?c=NewListController&m=mainAction&arg1=".<?=CURRENTLIST?>>New List</a>]
+                [<a href="Hw3/index.php?c=NewListController&m=mainAction&arg1=".<?=$current_list?>>New List</a>]
               </li>
               <?php
                 foreach($list_array as $list_id => $list_name){
@@ -43,7 +44,7 @@ class LandingView extends View{
           <h2>Notes</h2>
             <ul>
               <li>
-                [<a href="Hw3/index.php?c=NewNoteController&m=mainAction&arg1=".<?=CURRENTLIST?>>New Note</a>]
+                [<a href="Hw3/index.php?c=NewNoteController&m=mainAction&arg1=".<?=$current_list?>>New Note</a>]
               </li>
               <?php
                 foreach($note_array as $note_id => $note){
