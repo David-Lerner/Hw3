@@ -2,12 +2,12 @@
 namespace sudoku_solvers\hw3;
 
 use sudoku_solvers\hw3\controllers as C;
-use sudoku_solvers\hw3\configs\Config;
 
 if(!isset($_REQUEST['c']) && !isset($_REQUEST['m']))
 {
+	require_once('./src/controllers/LandingController.php');
 	$controller=new C\LandingController();
-	$controller->invoke();
+	$controller->mainAction([1]);
 }
 
 else
@@ -30,12 +30,11 @@ else
 				$argumentlist[]=$request_array[$arname];
 			}
 		}
-		
-		//$controller->$methodtoinvoke($argumentlist);
 	}
 	if(in_array($controllertocall,$availablecontrollers))
 	{
 		//It is a valid controller
+		require_once("./src/controllers/$controllertocall.php");
 		$controllerclass='sudoku_solvers\hw3\controllers' . $controllertocall;
 		$controller=new $controllerclass();
 		if(method_exists($controller,$methodtoinvoke))
@@ -52,12 +51,12 @@ else
 		}
 		else
 		{
-			print("Invalid method called. Page cannot be displayed");
+			print("Error: Invalid method called. Page cannot be displayed");
 		}
 	}
 	else
 	{
-		print("Page not found! Invalid Controller called");
+		print("Error: Page not found! Invalid Controller called");
 	}
 	
 }
