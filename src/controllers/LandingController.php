@@ -15,7 +15,7 @@ class LandingController extends Controller
 		$notes = [1=>["name"=>"Name1", "date_created"=>"1/1/1111"],
 		 2=>["name"=>"Name2", "date_created"=>"2/1/1111"],
 		 3=>["name"=>"Name3", "date_created"=>"3/1/1111"]];
-		$data = [$title, $lists, $notes]
+		$data = [$title, $lists, $notes];
 		
 		$views=new L\LandingView();
 		$views->render($data);
