@@ -22,6 +22,9 @@ class NewListController extends Controller
             $title = [1 => "Note-A-List", 
                     $parent["list_id"] => $parent["name"], 
                     $currentList => $list["name"]];
+            if ($parent["parent_id"] != 1) {
+                $title["long"] = "..";
+            }
         } else {
             $title = [1 => "Note-A-List", $currentList => $list["name"]];
         }

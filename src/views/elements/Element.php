@@ -6,7 +6,6 @@
 
   abstract class Element{
 
-    require_once("../View.php");
     public $view;
 
     public function __construct(View $current_view){

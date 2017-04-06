@@ -3,8 +3,9 @@
 namespace sudoku_solvers\hw3\views;
 
 use sudoku_solvers\hw3\views\layouts as L;
+use sudoku_solvers\hw3\views\elements as E;
 
-class LandingView extends View{
+class SublistView extends View{
 
   public $header_display;
 
@@ -24,7 +25,7 @@ class LandingView extends View{
     <body>
       <div class="page">
       <h1>
-        <!-- ELEMENT -->
+        <?php (new E\TitleElement($this))->render($title_array);?>
       </h1>
       <div>
         <div class ="listsDiv">
