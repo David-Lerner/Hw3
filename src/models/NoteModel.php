@@ -18,9 +18,7 @@ class NoteModel extends Model
     public function getNote($note_id) {
         $query ="SELECT * FROM note WHERE note_id = $note_id;";
         $result = mysqli_query($this->connection, $query);
-        $row = mysqli_fetch_array($result);
-        $note = ["note_id"=>$row["note_id"], "name"=>$row["name"], "date_created"=>$row["date_created"]];
-        return $note;
+        return mysqli_fetch_array($result);
     }
 
     public function addNote($name, $content, $currentList) {

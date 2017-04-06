@@ -15,6 +15,12 @@ class ListModel extends Model
         return $lists;
     }
 
+    public function getList($currentList) {
+        $query ="SELECT * FROM list WHERE list_id = $currentList;";
+        $result = mysqli_query($this->connection, $query);
+        return mysqli_fetch_array($result);
+    }
+
     public function addList($name, $currentList) {
         $lists = array();
         $query ="INSERT INTO List(name,parent_id) VALUES($name, $currentList);";
