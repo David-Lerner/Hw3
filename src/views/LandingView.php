@@ -2,7 +2,7 @@
 
 namespace sudoku_solvers\hw3\views;
 
-use sudoku_solvers\h3\views\Layout;
+use sudoku_solvers\hw3\views\layouts as L;
 
 class LandingView extends View{
 
@@ -10,7 +10,7 @@ class LandingView extends View{
 
   public function __construct(){
 
-    $this->header_display = new HeaderLayout($this);
+    $this->header_display = new L\HeaderLayout($this);
   }
 
   public function render($data){
@@ -20,9 +20,8 @@ class LandingView extends View{
       <h1>
         <a href="index.php?c=LandingController&m=mainAction$arg1=1"><?=$data[1] ?></a>
       </h1>
-    </body>
+    </body><?php
   }
 
 }
-
- ?>
+?>
