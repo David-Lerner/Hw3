@@ -14,20 +14,20 @@ class LandingController extends Controller
 
 		$title = [1=>"Note-A-List"];
 		
-		/*$lists = [1=>"List1", 2=>"List2",3=>"List3"];
+		$lists = [1=>"List1", 2=>"List2",3=>"List3"];
 		$notes = [1=>["name"=>"Name1", "date_created"=>"1/1/1111"], 
 				2=>["name"=>"Name2", "date_created"=>"2/1/1111"], 
-				3=>["name"=>"Name3", "date_created"=>"3/1/1111"]];*/
+				3=>["name"=>"Name3", "date_created"=>"3/1/1111"]];
 		
-		$listModel = new M\ListModel();
+		/*$listModel = new M\ListModel();
 		$lists = $listModel->getLists($currentList);
 		$listModel->closeConnection();
 
 		$noteModel = new M\NoteModel();
 		$notes = $noteModel->geNotes($currentList);
-		$noteModel->closeConnection();
+		$noteModel->closeConnection();*/
 
-		$data = [$title, $lists, $notes];
+		$data = [$title, $lists, $notes, $currentList];
 		$views=new L\LandingView();
 		$views->render($data);
 	}
