@@ -1,6 +1,6 @@
 <?php
  /* * CreateDB.php can be run from the command-line to
- *    make a good initial database
+ *    make an initial database
  */
 
 namespace sudoku_solvers\hw3\configs;

@@ -9,9 +9,9 @@ use sudoku_solvers\hw3\configs\Config;
 class NewListController extends Controller
 {
 
-	public function mainAction($params=array("arg1"=>1))
+	public function mainAction($params)
 	{
-		$currentList = $params["arg1"];
+		$currentList = (isset($params['arg1'])) ? filter_var($params['arg1'], FILTER_SANITIZE_NUMBER_INT) : 1;
 
 		$listModel = new M\ListModel();
 
@@ -37,13 +37,16 @@ class NewListController extends Controller
 	}
 
     public function submitAction($params) {
-        $currentList = $params["arg1"];
-        $name = $params["arg2"];
-
-        $listModel = new M\ListModel();
-        $newList = $listModel->addList($name, $currentList);
-        //add error check
-		$listModel->closeConnection();
+        $currentList = (isset($params['arg1'])) ? filter_var($params['arg1'], FILTER_SANITIZE_NUMBER_INT) : 1;
+        $name = (isset($params['arg2'])) ? filter_var($params['arg2'], FILTER_SANITIZE_STRING) : "";
+        
+        $newList = $currentList;
+        if ($name != "") {
+            $listModel = new M\ListModel();
+            $newList = $listModel->addList($name, $currentList);
+            //add error check
+		    $listModel->closeConnection();
+        }     
 
         header("Location:" . Config::BASE_URL . "\index.php?c=SublistController&m=mainAction&arg1=$newList");
     }

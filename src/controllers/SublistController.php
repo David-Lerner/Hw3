@@ -8,11 +8,9 @@ use sudoku_solvers\hw3\controllers\Controller;
 class SublistController extends Controller
 {
 
-	public function mainAction($params=array("arg1"=>1))
+	public function mainAction($params)
 	{
-		$currentList = $params["arg1"];
-
-		
+		$currentList = (isset($params['arg1'])) ? filter_var($params['arg1'], FILTER_SANITIZE_NUMBER_INT) : 1;
 
 		$listModel = new M\ListModel();
 
