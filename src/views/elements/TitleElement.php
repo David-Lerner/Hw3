@@ -2,29 +2,29 @@
 
 namespace sudoku_solvers\hw3\views\elements;
 
+use sudoku_solvers\hw3\configs\Config;
+
 class TitleElement extends Element{
 
   public function render($data){
-    $keys = array_keys($data);
-      ?><div>
-        <a href="Hw3/index.php"><?=$data[$keys[0]]?></a>/<?php
+      ?> 
+      <h1>
+        <a href="<?= Config::BASE_URL ?>/index.php?c=LandingController&m=mainAction"><?=$data["head"]["name"]?></a><?php
 
-    if(sizeof($data) == 2){
-      $current_list = $data[$keys[1]];
-
-      ?><a href="Hw3/index.php?c=SublistController&m=mainAction&arg1=<?=$keys[1]?>"><?=$data[$keys[1]]?></a></div>
-      <?php
-    } else {
-      $parent_list = $data[$keys[1]];
-      $current_list = $data[$keys[2]];
-
-      if ((sizeof($data) > 3 )){
-        ?>../<?php
+      if(isset($data["long"])){
+        ?> 
+        /..<?php
       }
-      ?><a href="Hw3/index.php?c=SublistController&m=mainAction&arg1=<?=$keys[1]?>"><?=$data[$keys[1]]?></a>/
-      <a href="Hw3/index.php?c=SublistController&m=mainAction&arg1=<?=$keys[2]?>"><?=$data[$keys[2]]?></a>
-      </div><?php
+      if(isset($data["parent"])){
+        ?> 
+        /<a href="<?= Config::BASE_URL ?>/index.php?c=SublistController&m=mainAction&arg1=<?=$data["parent"]["id"]?>"><?=$data["parent"]["name"]?></a><?php
+      } 
+      if(isset($data["current"])){
+        ?> 
+        /<a href="<?= Config::BASE_URL ?>/index.php?c=SublistController&m=mainAction&arg1=<?=$data["current"]["id"]?>"><?=$data["current"]["name"]?></a><?php
+      }
+      ?> 
+      </h1><?php
     }
-  }
 }
 ?>

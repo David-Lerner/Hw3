@@ -22,7 +22,7 @@ class ListModel extends Model
     }
 
     public function addList($name, $currentList) {
-        $query ="INSERT INTO List(name,parent_id) VALUES($name, $currentList);";     
+        $query ="INSERT INTO List(name,parent_id) VALUES('$name', $currentList);";     
         if (mysqli_query($this->connection, $query)) {
             //echo "New record created successfully";
             return mysqli_insert_id($this->connection);

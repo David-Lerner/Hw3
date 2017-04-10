@@ -4,30 +4,27 @@ h2 {
 }
 
 .listsDiv {
-  float:left;
-  position:relative;
-  height:1.5in;
-  top:-.17in;
-  width:1.5in;
+  float: left;
+  width:50%;
 }
 
 .lists_items{
     font-size: 14px;
 }
 
-.newX {
-    
-}
-
 .notesDiv {
-    height: 1in;
+    float: right;
+    width:50%;
 }
 
 .page {
-  align-items: center;
+  margin: auto;
   border:1px solid black;
-  width:3in;
-  height:3in;
-  margin:.05in;
-  padding:0.25in;">
+  width:5in;
+  min-height:3in;
+  padding:0.25in;
+}
+
+.submission {
+  margin-left: 1in;
 }

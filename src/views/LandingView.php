@@ -3,61 +3,59 @@
 namespace sudoku_solvers\hw3\views;
 
 use sudoku_solvers\hw3\views\layouts as L;
+use sudoku_solvers\hw3\views\helpers as H;
+use sudoku_solvers\hw3\configs\Config;
 
 class LandingView extends View{
 
   public $header_display;
   public $footer_display;
+  public $list_display;
+  public $note_display;
 
   public function __construct(){
 
     $this->header_display = new L\HeaderLayout($this);
     $this->footer_display = new L\FooterLayout($this);
-
+    $this->list_display = new H\ListHelper($this);
+    $this->note_display = new H\NoteHelper($this);
   }
 
   public function render($data){
-    $this->header_display->render($data[0]);
     $title_array = $data[0];
     $list_array = $data[1];
     $note_array = $data[2];
     $current_list = $data[3];
-    ?>
+
+    $this->header_display->render($title_array["head"]);
+    ?> 
       <div class="page">
       <h1>
-        <a href="Hw3/index.php"><?=$title_array[1]?></a>
+        <a href="<?= Config::BASE_URL ?>/index.php"><?=$title_array["head"]["name"]?></a>
       </h1>
       <div>
         <div class ="listsDiv">
           <h2>Lists</h2>
             <ul>
-              <li>
-                [<a href="Hw3/index.php?c=NewListController&m=mainAction&arg1=<?=$current_list?>">New List</a>]
+              <li class="lists_items">
+                [<a href="<?= Config::BASE_URL ?>/index.php?c=NewListController&m=mainAction&arg1=<?=$current_list?>">New List</a>]
               </li>
-              <?php
-                foreach($list_array as $list_id => $list_name){
-                  ?><li class="lists_items"><a href="Hw3/index.php?c=SublistController&m=mainAction&arg1=<?=$list_id?>"><?=$list_name?></a></li> <?php
-                }
-              ?>
+              <?php $this->list_display->render($list_array); ?> 
             </ul>
         </div>
 
         <div class="notesDiv">
           <h2>Notes</h2>
             <ul>
-              <li>
-                [<a href="Hw3/index.php?c=NewNoteController&m=mainAction&arg1=<?=$current_list?>">New Note</a>]
+              <li class="lists_items">
+                [<a href="<?= Config::BASE_URL ?>/index.php?c=NewNoteController&m=mainAction&arg1=<?=$current_list?>">New Note</a>]
               </li>
-              <?php
-                foreach($note_array as $note_id => $note){
-                  ?> <li class="lists_items"><a href="Hw3/index.php?c=SublistController&m=mainAction&arg1=<?=$note_id?>"><?=$note['name']?></a> <?=$note['date_created']?></li>
-                  <?php
-                }
-               ?>
+              <?php $this->note_display->render($note_array); ?> 
             </ul>
         </div>
       </div>
-    </div><?php
+    </div>
+    <?php
     $this->footer_display->render($data[0]);
   }
 

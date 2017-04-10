@@ -12,9 +12,9 @@
         <!DOCTYPE html>
         <html>
         <head>
-          <title><?= $data[1] ?></title>
-          <base href="<?= Config::BASE_URL ?>"/>
-          <link rel="stylesheet" type="text/css" href="/Hw3/src/styles/common.css">
+          <title><?= $data["name"] ?></title>
+          <base href="<?= Config::BASE_URL ?>/"/>
+          <link rel="stylesheet" type="text/css" href="<?= Config::BASE_URL ?>/src/styles/common.css">
         </head>
         <body>
       <?php

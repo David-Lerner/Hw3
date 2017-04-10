@@ -8,24 +8,23 @@ use sudoku_solvers\hw3\controllers\Controller;
 class SublistController extends Controller
 {
 
-	public function mainAction($params)
+	public function mainAction()
 	{
-		$currentList = (isset($params['arg1'])) ? filter_var($params['arg1'], FILTER_SANITIZE_NUMBER_INT) : 1;
+		$currentList = (isset($_REQUEST['arg1'])) ? filter_var($_REQUEST['arg1'], FILTER_SANITIZE_NUMBER_INT) : 1;
 
 		$listModel = new M\ListModel();
-
-        $title = array();
+        
+        $title = ["head"=>["name"=>"Note-A-List", "id"=>1]];
         $list = $listModel->getList($currentList);
-        if ($list["parent_id"] != 1) {
-            $parent = $listModel->getList($list["parent_id"]);
-            $title = [1 => "Note-A-List", 
-                    $parent["list_id"] => $parent["name"], 
-                    $currentList => $list["name"]];
-            if ($parent["parent_id"] != 1) {
-                $title["long"] = "..";
+        if ($currentList != 1) {
+            $title["current"] = ["name"=>$list["name"], "id"=>$list["list_id"]];
+            if ($list["parent_id"] != 1) {
+                $parent = $listModel->getList($list["parent_id"]);
+                $title["parent"] = ["name"=>$parent["name"], "id"=>$parent["list_id"]];
+                if ($parent["parent_id"] != 1) {
+                    $title["long"] = true;
+                }
             }
-        } else {
-            $title = [1 => "Note-A-List", $currentList => $list["name"]];
         }
 
 		$lists = $listModel->getLists($currentList);

@@ -8,7 +8,7 @@
   class FooterLayout extends Layout{
 
     public function render($data){
-      ?>
+      ?> 
         </body>
         </html>
       <?php
