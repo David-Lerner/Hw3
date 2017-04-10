@@ -25,7 +25,7 @@ class NoteModel extends Model
         $query ="INSERT INTO List(name,content,date_created,list_id) VALUES($name, $content, CURDATE(), $currentList);";
         if (mysqli_query($this->connection, $query)) {
              //echo "New record created successfully";
-            return true;
+            return mysqli_insert_id($this->connection);
         } else {
             //echo "Error: " . $query . "<br>" . mysqli_error($this->connection);
             return false;

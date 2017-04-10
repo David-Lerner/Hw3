@@ -32,7 +32,7 @@ class NewListController extends Controller
 		$listModel->closeConnection();
 
 		$data = [$title];
-		$views=new V\AddListView();
+		$views=new V\NewListView();
 		$views->render($data);
 	}
 

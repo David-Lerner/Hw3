@@ -4,5 +4,6 @@ Nelson Dornelas - 009657297
 CS 174
 HW 3
 
-For the MySQL access:
-1) Make sure to change the host, password in the config file to what is necessary
+config.php instructions:
+1) Make sure to change the base URL to whatever the base URL for the local host is
+2) For MySQL access, make sure to change the host, password, etc. in the config file to what is necessary
