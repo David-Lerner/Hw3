@@ -8,10 +8,12 @@ use sudoku_solvers\hw3\views\elements as E;
 class SublistView extends View{
 
   public $header_display;
+  public $footer_display;
 
   public function __construct(){
 
     $this->header_display = new L\HeaderLayout($this);
+    $this->footer_display = new L\FooterLayout($this);
   }
 
   public function render($data){
@@ -21,8 +23,6 @@ class SublistView extends View{
     $note_array = $data[2];
     $current_list = $data[3];
     ?>
-
-    <body>
       <div class="page">
       <h1>
         <?php (new E\TitleElement($this))->render($title_array);?>
@@ -57,9 +57,8 @@ class SublistView extends View{
             </ul>
         </div>
       </div>
-    </div>
-    </body>
-    </html><?php
+    </div><?php
+    $this->footer_display->render($data[0]);
   }
 
 }

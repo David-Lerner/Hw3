@@ -16,9 +16,9 @@
           <base href="<?= Config::BASE_URL ?>"/>
           <link rel="stylesheet" type="text/css" href="/Hw3/src/styles/common.css">
         </head>
+        <body>
       <?php
     }
 
   }
-
  ?>

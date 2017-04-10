@@ -7,10 +7,13 @@ use sudoku_solvers\hw3\views\layouts as L;
 class LandingView extends View{
 
   public $header_display;
+  public $footer_display;
 
   public function __construct(){
 
     $this->header_display = new L\HeaderLayout($this);
+    $this->footer_display = new L\FooterLayout($this);
+
   }
 
   public function render($data){
@@ -20,8 +23,6 @@ class LandingView extends View{
     $note_array = $data[2];
     $current_list = $data[3];
     ?>
-
-    <body>
       <div class="page">
       <h1>
         <a href="Hw3/index.php"><?=$title_array[1]?></a>
@@ -56,9 +57,8 @@ class LandingView extends View{
             </ul>
         </div>
       </div>
-    </div>
-    </body>
-    </html><?php
+    </div><?php
+    $this->footer_display->render($data[0]);
   }
 
 }
