@@ -37,7 +37,7 @@ class LandingView extends View{
         <div class ="listsDiv">
           <h2>Lists</h2>
             <ul>
-              <li class="lists_items">
+              <li class="note_items">
                 [<a href="<?= Config::BASE_URL ?>/index.php?c=NewListController&m=mainAction&arg1=<?=$current_list?>">New List</a>]
               </li>
               <?php $this->list_display->render($list_array); ?> 
@@ -47,7 +47,7 @@ class LandingView extends View{
         <div class="notesDiv">
           <h2>Notes</h2>
             <ul>
-              <li class="lists_items">
+              <li class="note_items">
                 [<a href="<?= Config::BASE_URL ?>/index.php?c=NewNoteController&m=mainAction&arg1=<?=$current_list?>">New Note</a>]
               </li>
               <?php $this->note_display->render($note_array); ?> 
